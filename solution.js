@@ -30,7 +30,6 @@ function without(obj, eliminator) {
   for (const key in obj) {
     if (obj[key] === obj[eliminator]) {
       delete obj[key];
-
     }
   }
   return obj
@@ -41,8 +40,16 @@ console.log(without(data3, 'b')); // { a: 1 }
 
 //4
 const data4 = { a: 1, b: undefined };
-const data40 = { a: undefined };
+const data40 = {};
 //write your code here 
+
+function isEmpty(object) {
+  for (const key in object) {
+    if (object[key] === undefined || Object.keys(object).length === 0)
+      return true
+  }
+}
+
 console.log(isEmpty(data4)); // false
 console.log(isEmpty(data40)); // true 
 
@@ -51,6 +58,11 @@ const data5 = { a: 1, b: 1 };
 const data51 = { a: 1, b: 1 };
 const data52 = { a: 1, b: 2 };
 //write your code here 
+
+function isEqual(obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2)
+}
+
 console.log(isEqual(data5, data51)); // true  
 console.log(isEqual(data5, data52)); // false
 
