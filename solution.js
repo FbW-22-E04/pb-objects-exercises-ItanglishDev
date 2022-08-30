@@ -26,6 +26,16 @@ console.log(makePairs(data2)); // [['a', 1], ['b', 2]]
 //3
 const data3 = { a: 1, b: 2 };
 //write your code here 
+function without(obj, eliminator) {
+  for (const key in obj) {
+    if (obj[key] === obj[eliminator]) {
+      delete obj[key];
+
+    }
+  }
+  return obj
+}
+
 console.log(without(data3, 'b')); // { a: 1 }
 
 
