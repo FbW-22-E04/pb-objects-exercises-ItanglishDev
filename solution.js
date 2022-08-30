@@ -76,6 +76,7 @@ const data6 = { a: { b: [1, 2, 3] } }
 
 function invoke(object, value, nameIt, whatToCut) {
 
+
   const newObjectArray = { object, value, nameIt, whatToCut }
   return Object.values(newObjectArray)
 }
@@ -85,8 +86,16 @@ console.log(invoke(data6, 'a.b', 'splice', [1, 2])) // [2, 3]
 
 //7
 const data7 = { a: { b: undefined } };
+
+function isEmptyDeep(object) {
+
+  const insideValue = Object.values(object)
+  console.log(insideValue);
+  console.log(object);
+
+}
 //write your code here 
-console.log(isEmptyDeep(data7));
+console.log("===>", isEmptyDeep(data7));
 
 
 //8
@@ -94,6 +103,10 @@ const data8 = { a: 1, b: { c: 1 } };
 const data81 = { a: 1, b: { c: 1 } };
 const data82 = { a: 1, b: { c: 2 } };
 //write your code here 
+
+function isEqualDeep(obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2)
+}
 console.log(isEqualDeep(data8, data81));// true  
 console.log(isEqualDeep(data8, data82)); // false  
 
