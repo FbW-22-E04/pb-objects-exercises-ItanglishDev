@@ -40,14 +40,19 @@ console.log(without(data3, 'b')); // { a: 1 }
 
 //4
 const data4 = { a: 1, b: undefined };
-const data40 = {};
+const data40 = { a: undefined };
 //write your code here 
 
 function isEmpty(object) {
-  for (const key in object) {
-    if (object[key] === undefined || Object.keys(object).length === 0)
-      return true
-  }
+  for (const [key, value] of Object.entries(object)) {
+    if (value !== undefined)
+      return false
+  } return true
+
+  // for (const value in object) {
+  //   if (object[value] !== undefined || Object.keys(object).length !== 0)
+  //     return false
+  // } return true
 }
 
 console.log(isEmpty(data4)); // false
@@ -68,6 +73,12 @@ console.log(isEqual(data5, data52)); // false
 
 //6
 const data6 = { a: { b: [1, 2, 3] } }
+
+function invoke(object, value, nameIt, whatToCut) {
+
+  const newObjectArray = { object, value, nameIt, whatToCut }
+  return Object.values(newObjectArray)
+}
 //write your code here 
 console.log(invoke(data6, 'a.b', 'splice', [1, 2])) // [2, 3]
 
