@@ -17,8 +17,9 @@ function makePairs(obj) {
 
   const array = []
 
-  for (const key in object) {
-    array.push(key.object)
+  for (const key in obj) {
+    const entries = Object.entries(obj)
+    return entries
   }
 }
 //write your code here 
