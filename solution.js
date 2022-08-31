@@ -71,9 +71,6 @@ function isEqual(obj1, obj2) {
 console.log(isEqual(data5, data51)); // true  
 console.log(isEqual(data5, data52)); // false
 
-
-
-
 //6
 const data6 = { a: { b: [1, 2, 3] } }
 
@@ -81,7 +78,10 @@ function invoke(object, value, nameIt, whatToCut) {
 
 
   const newObjectArray = { object, value, nameIt, whatToCut }
-  return Object.values(newObjectArray)
+  const endValue = (object.a.b.splice(1, 2))
+  const initial = Object.values(newObjectArray)
+  return (initial.concat(endValue))
+
 }
 //write your code here 
 console.log(invoke(data6, 'a.b', 'splice', [1, 2])) // [2, 3]
@@ -93,8 +93,7 @@ const data7 = { a: { b: undefined } };
 function isEmptyDeep(object) {
 
   const insideValue = Object.values(object)
-  console.log(insideValue);
-  console.log(object);
+
 
 }
 //write your code here 
@@ -115,23 +114,44 @@ console.log(isEqualDeep(data8, data82)); // false
 
 
 //9
-const data9 = { a: 1, b: 2 };
-const data91 = { c: 1, b: 2 };
+const data9 = { a: 1, b: 2, d: 4 };
+const data91 = { c: 1, a: 1, d: 4 };
 //write your code here 
 
 function intersection(obj1, obj2) {
-  for (const key in obj1) {
-    for (const key in obj2) {
-      if (Object.values(obj1) === Object.values(obj2))
-        return obj1[key]
-    }
-  }
+
+  return Object.keys(obj1).reduce((acc, key) => {
+    if (obj2[key] === obj1[key]) {
+
+      acc[key] = obj1[key]
+    } return acc
+  }, {})
+  // for (const value in obj1) {
+  // for (const value in obj2) {
+  //   if (obj1[value] === obj2[value])
+  //     return `{${value}: ${obj1[value]}}`
+  // }
+  // }
 }
-console.log(intersection(data9, data91)); // { b: 2 }
+console.log("intersection", intersection(data9, data91)); // { b: 2 }
 
 
 //10
 const data10 = { a: 1, b: { c: 3 } };
 const data11 = { c: 1, b: { c: 3 } };
 //write your code here
+
+function intersectionDeep(obj1, obj2) {
+
+  // return Object.keys(Object.keys(obj1)).reduce((acc, key) => {
+
+  //   if (obj2[key] === obj1[key]) {
+
+  //     acc[key] = obj1[key]
+  //   } return acc
+  // }, {})
+
+  console.log((Object.entries(obj1)));
+
+}
 console.log(intersectionDeep(data10, data11)); // { b: { c: 3 } }
