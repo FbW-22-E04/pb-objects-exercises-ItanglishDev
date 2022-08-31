@@ -71,6 +71,9 @@ function isEqual(obj1, obj2) {
 console.log(isEqual(data5, data51)); // true  
 console.log(isEqual(data5, data52)); // false
 
+
+
+
 //6
 const data6 = { a: { b: [1, 2, 3] } }
 
