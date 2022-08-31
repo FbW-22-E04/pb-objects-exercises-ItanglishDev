@@ -40,7 +40,7 @@ console.log(without(data3, 'b')); // { a: 1 }
 
 //4
 const data4 = { a: 1, b: undefined };
-const data40 = { a: undefined };
+const data40 = {};
 //write your code here 
 
 function isEmpty(object) {
@@ -49,14 +49,14 @@ function isEmpty(object) {
       return false
   } return true
 
-  // for (const value in object) {
-  //   if (object[value] !== undefined || Object.keys(object).length !== 0)
-  //     return false
-  // } return true
+  //   for (const value in object) {
+  //     if (Object.keys(object).length === 0 || object[value] === undefined)
+  //       return true
+  //   } return false
 }
 
-console.log(isEmpty(data4)); // false
-console.log(isEmpty(data40)); // true 
+console.log("HERE", isEmpty(data4)); // false
+console.log("SECOND", isEmpty(data40)); // true 
 
 //5
 const data5 = { a: 1, b: 1 };
@@ -115,11 +115,20 @@ console.log(isEqualDeep(data8, data82)); // false
 const data9 = { a: 1, b: 2 };
 const data91 = { c: 1, b: 2 };
 //write your code here 
+
+function intersection(obj1, obj2) {
+  for (const key in obj1) {
+    for (const key in obj2) {
+      if (Object.values(obj1) === Object.values(obj2))
+        return obj1[key]
+    }
+  }
+}
 console.log(intersection(data9, data91)); // { b: 2 }
 
 
 //10
 const data10 = { a: 1, b: { c: 3 } };
 const data11 = { c: 1, b: { c: 3 } };
-//write your code here 
+//write your code here
 console.log(intersectionDeep(data10, data11)); // { b: { c: 3 } }
