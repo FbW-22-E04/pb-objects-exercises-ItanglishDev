@@ -76,11 +76,13 @@ const data6 = { a: { b: [1, 2, 3] } }
 
 function invoke(object, value, nameIt, whatToCut) {
 
-
   const newObjectArray = { object, value, nameIt, whatToCut }
+
   const endValue = (object.a.b.splice(1, 2))
+
   const initial = Object.values(newObjectArray)
   return (initial.concat(endValue))
+  // return object, `${endValue}`
 
 }
 //write your code here 
