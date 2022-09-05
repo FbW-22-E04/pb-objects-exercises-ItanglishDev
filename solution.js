@@ -106,7 +106,8 @@ function isEmptyDeep(object) {
     if (typeof values[i] === 'object') {
 
       isEmptyDeep(values[i])
-    } else if (typeof values[i] !== 'undefined') return false
+    } else if (typeof values[i] !== 'undefined')
+      return false
   }
 
   return true
