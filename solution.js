@@ -92,6 +92,7 @@ console.log(invoke(data6, 'a.b', 'splice', [1, 2])) // [2, 3]
 //7
 const data7 = { a: { b: undefined } };
 const data71 = {};
+const data72 = { a: { b: 3 } };
 
 function isEmptyDeep(object) {
 
@@ -105,13 +106,12 @@ function isEmptyDeep(object) {
     if (typeof values[i] === 'object') {
 
       isEmptyDeep(values[i])
-    }
+    } else if (typeof values[i] !== 'undefined') return false
   }
 
-
-
-
+  return true
 }
+
 //write your code here 
 console.log("===>", isEmptyDeep(data7));
 
