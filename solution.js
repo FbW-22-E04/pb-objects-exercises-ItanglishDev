@@ -91,10 +91,24 @@ console.log(invoke(data6, 'a.b', 'splice', [1, 2])) // [2, 3]
 
 //7
 const data7 = { a: { b: undefined } };
+const data71 = {};
 
 function isEmptyDeep(object) {
 
-  const insideValue = Object.values(object)
+  const keys = Object.keys(object)
+  const values = Object.values(object)
+
+  if (keys.length === 0) return true
+
+  for (let i = 0; i < keys.length; i++) {
+
+    if (typeof values[i] === 'object') {
+
+      isEmptyDeep(values[i])
+    }
+  }
+
+
 
 
 }
