@@ -168,7 +168,7 @@ function intersectionDeep(obj1, obj2) {
   //   } return acc
   // }, {})
 
-  console.log((Object.entries(obj1)));
+  // console.log((Object.entries(obj1)));
 
 }
 console.log(intersectionDeep(data10, data11)); // { b: { c: 3 } }
