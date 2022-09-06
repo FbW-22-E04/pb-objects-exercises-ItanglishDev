@@ -96,21 +96,36 @@ const data72 = { a: { b: 3 } };
 
 function isEmptyDeep(object) {
 
-  const keys = Object.keys(object)
-  const values = Object.values(object)
+  if ((!object && object !== 0) ||
+    (typeof object === 'object' && Object.keys(object).length)) return true
 
-  if (keys.length === 0) return true
+  if (typeof object === 'object') {
+    for (let key in object) {
 
-  for (let i = 0; i < keys.length; i++) {
+      if (!isEmptyDeep(object[key])) return false
+    }
+    return true
 
-    if (typeof values[i] === 'object') {
+  } else {
 
-      isEmptyDeep(values[i])
-    } else if (typeof values[i] !== 'undefined')
-      return false
+    return false
   }
 
-  return true
+  // const keys = Object.keys(object)
+  // const values = Object.values(object)
+
+  // if (keys.length === 0) return true
+
+  // for (let i = 0; i < keys.length; i++) {
+
+  //   if (typeof values[i] === 'object') {
+
+  //     isEmptyDeep(values[i])
+  //   } else if (typeof values[i] !== 'undefined')
+  //     return false
+  // }
+
+  // return true
 }
 
 //write your code here 
